@@ -1,0 +1,20 @@
+server:
+  port: 9003
+
+spring:
+  application:
+    name: nacos-consumer
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+
+        # 1. 账号密码
+        username: nacos
+        password: nacos
+
+        # 2. 必须与 Provider 保持一致，否则找不到服务
+        namespace: d4a9513f-cd2f-4d1d-95c9-1bb5c273eab2
+
+        # 3. 必须与 Provider 保持一致
+        group: LEARNING_GROUP

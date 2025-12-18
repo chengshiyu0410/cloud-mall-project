@@ -16,6 +16,8 @@
     <modules>
         <module>cloud-common</module>
         <module>service-order</module>
+        <module>cloud-01-nacos-provider</module>
+        <module>cloud-02-nacos-consumer</module>
     </modules>
 
     <properties>
