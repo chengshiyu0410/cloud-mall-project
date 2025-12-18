@@ -1,9 +1,9 @@
 server:
-  port: 9001
+  port: 9010
 
 spring:
   application:
-    name: nacos-provider
+    name: openfeign-consumer
   cloud:
     nacos:
       discovery:
@@ -25,3 +25,10 @@ spring:
           - data-id: common-base.yaml
             group: DEFAULT_GROUP
             refresh: true
+
+# --- OpenFeign 日志配置 (可选) ---
+# Feign 默认只打印 ERROR 级别的日志。
+# 如果你想看到它具体发出了什么 HTTP 请求（类似抓包），需要调低日志级别
+logging:
+  level:
+    com.csy.cloud.openfeign.consumer.service: debug

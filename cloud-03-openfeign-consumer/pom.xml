@@ -1,0 +1,64 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>cloud-learning-platform</artifactId>
+        <groupId>com.csy</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>cloud-03-openfeign-consumer</artifactId>
+
+    <dependencies>
+        <!-- 1. OpenFeign 核心依赖 -->
+        <!-- 作用：它包含 Feign 核心包和 Spring MVC 的注解支持 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+
+        <!-- 2. LoadBalancer 负载均衡器 -->
+        <!-- 知识点：OpenFeign 内部会自动整合 LoadBalancer，
+             但在 Spring Cloud 新版本中，有时候如果不显式引入，可能会报 ClassNotFound，
+             为了稳妥，建议加上。它是 Feign 知道"挑哪个IP"的关键 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-loadbalancer</artifactId>
+        </dependency>
+
+        <!-- 3. Nacos 服务发现 -->
+        <!-- 作用：Feign 需要去 Nacos 问："nacos-provider 在哪里？" -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+
+        <!-- 2. Nacos 配置中心 (Config Center) -->
+        <!-- 作用：让服务能从 Nacos 读取 application.yaml 配置 -->
+        <!-- 漏了这个，bootstrap.yml.yml 里的 config 配置就会失效！ -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+        </dependency>
+
+        <!-- 3. Spring Cloud Bootstrap 启动器 -->
+        <!-- 作用：Spring Boot 2.4+ 版本之后，必须加这个才能识别 bootstrap.yml.yml 文件 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bootstrap</artifactId>
+        </dependency>
+
+        <!-- Web 容器 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- 公共包 (Result等) -->
+        <dependency>
+            <groupId>com.csy</groupId>
+            <artifactId>cloud-common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+</project>

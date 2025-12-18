@@ -7,7 +7,7 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: localhost:8848
+        server-addr: 100.89.225.23:8848
 
         # 1. 账号密码
         username: nacos
