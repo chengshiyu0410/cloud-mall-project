@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: nacos-consumer
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        username: nacos
+        password: nacos
+        namespace: d4a9513f-cd2f-4d1d-95c9-1bb5c273eab2
+        group: LEARNING_GROUP
+      config:
+        server-addr: localhost:8848
+        username: nacos
+        password: nacos
+        namespace: d4a9513f-cd2f-4d1d-95c9-1bb5c273eab2
+        group: LEARNING_GROUP
+        file-extension: yaml
+        import-check:
+          enabled: false
+        shared-configs:
+          - data-id: common-base.yaml
+            group: DEFAULT_GROUP
+            refresh: true

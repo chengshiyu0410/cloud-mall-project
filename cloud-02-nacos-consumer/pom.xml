@@ -24,6 +24,21 @@
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
+        <!-- 2. Nacos 配置中心 (Config Center) -->
+        <!-- 作用：让服务能从 Nacos 读取 application.yaml 配置 -->
+        <!-- 漏了这个，bootstrap.yml 里的 config 配置就会失效！ -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+        </dependency>
+
+        <!-- 3. Spring Cloud Bootstrap 启动器 -->
+        <!-- 作用：Spring Boot 2.4+ 版本之后，必须加这个才能识别 bootstrap.yml 文件 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bootstrap</artifactId>
+        </dependency>
+
         <!--
            重点知识点：
            Spring Cloud 2020 版本之后移除了 Ribbon，
@@ -34,6 +49,10 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-loadbalancer</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
         </dependency>
     </dependencies>
 </project>

@@ -14,3 +14,13 @@ mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # 开启控制台 SQL 日志，方便调试
     map-underscore-to-camel-case: true # 开启下划线转驼峰 (order_no -> orderNo)
+
+
+decorator:
+  datasource:
+    p6spy:
+      # 日志格式
+      log-format: "\ntime:%(executionTime) || sql:%(sql)\n"
+      # 自定义日志类
+      logging: custom
+      custom-appender-class: com.csy.cloud.order.service.StdoutLogger

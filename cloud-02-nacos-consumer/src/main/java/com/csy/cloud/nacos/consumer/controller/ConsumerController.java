@@ -14,8 +14,13 @@ public class ConsumerController {
 
     private static final String SERVICE_PROVIDER = "http://nacos-provider";
 
-    @GetMapping("/consumer/echo")
+    @GetMapping("/echo")
     public Result<String> echo () {
         return restTemplate.getForObject(SERVICE_PROVIDER + "/nacos-provider/echo", Result.class);
+    }
+
+    @GetMapping("/config/info")
+    public Result<String> info () {
+        return restTemplate.getForObject(SERVICE_PROVIDER + "/nacos-provider/config/info", Result.class);
     }
 }
