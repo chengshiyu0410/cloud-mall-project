@@ -21,4 +21,10 @@ public class FeignController {
         log.info(">>> 正在使用OpenFegin 发起远程调用。。。。。");
         return remoteProviderService.echo();
     }
+
+    @GetMapping("/feign/getConfigInfo")
+    public Result<String> getConfigInfo(){
+        log.info(">>> 正在使用OpenFegin 发起远程调用。。。。。");
+        return remoteProviderService.getConfigInfo();
+    }
 }
