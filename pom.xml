@@ -19,6 +19,7 @@
         <module>cloud-01-nacos-provider</module>
         <module>cloud-02-nacos-consumer</module>
         <module>cloud-03-openfeign-consumer</module>
+        <module>cloud-04-sentinel-service</module>
     </modules>
 
     <properties>

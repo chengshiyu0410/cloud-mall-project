@@ -1,0 +1,25 @@
+server:
+  port: 9020
+
+spring:
+  application:
+    name: sentinel-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 100.89.225.23:8848
+        username: nacos
+        password: nacos
+        namespace: d4a9513f-cd2f-4d1d-95c9-1bb5c273eab2 # 填你的 Dev 环境 ID
+        group: LEARNING_GROUP
+
+    # --- Sentinel 核心配置 ---
+    sentinel:
+      transport:
+        # 1. 控制台地址 (填你启动脚本里设定的端口)
+        dashboard: 100.89.225.23:8858
+        # 2. 客户端监控端口 (默认8719，如果被占用会自动+1)
+        # Sentinel 控制台需要通过这个端口给微服务推送规则
+        port: 8719
+      # 3. 立即加载 (可选，默认是懒加载，即第一次访问接口后才连接控制台)
+      eager: true
